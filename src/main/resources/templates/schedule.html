@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/jdbc">
+<head>
+    <meta charset="UTF-8">
+    <title>Presentations</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css"
+          th:href="@{/css/bootstrap.min.css}"/>
+
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Topic</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="presentation : ${presentations}">
+            <td th:text="${presentation.id}">1</td>
+            <td th:text="${presentation.topic}">1</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'users')}">
+
+<body>
+
+<h2>
+    Presentation
+</h2>
+<form th:object="${presentation}" class="form-horizontal" method="post">
+    <input type="hidden" name="id" th:value="*{id}"/>
+    <div class="form-group has-feedback">
+        <input
+                th:replace="~{fragments/inputField :: input ('Name', 'topic', 'text')}"/>
+        <input
+                th:replace="~{fragments/inputField :: input ('Date', 'perftime', 'datetime-local')}" />
+        <input
+                th:replace="~{fragments/selectField :: select ('Room', 'room', ${rooms})}"/>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button
+                    class="btn btn-default" type="submit">Save Presentation
+            </button>
+        </div>
+    </div>
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'users')}">
+
+<body>
+
+
+<h2>User Information</h2>
+
+
+<table class="table table-striped" th:object="${user}">
+    <tr>
+        <th>Name</th>
+        <td><b th:text="*{username}"></b></td>
+    </tr>
+    <tr>
+        <th>Role</th>
+        <td><b th:text="*{getRole().getRole()}"></b></td>
+    </tr>
+
+    <tr>
+        <th>Role</th>
+        <td><b th:text="*{getEmail()}"></b></td>
+    </tr>
+
+</table>
+
+<a th:href="@{{id}/edit(id=${user.id})}" class="btn btn-default">Edit user</a>
+<a th:href="@{{id}/presentations/new(id=${user.id})}" class="btn btn-default">Add Presentation</a>
+
+<br/>
+<br/>
+<br/>
+<h2>Presentations</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Topic</th>
+        <th>Room</th>
+        <th>Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="presentation : ${user.getPresentations()}">
+        <td th:text="${presentation.getTopic()}">Topic</td>
+        <td th:text="${presentation.getRoom()}">Room</td>
+        <td th:text="${presentation.getPerftime()}">Time</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+</html>

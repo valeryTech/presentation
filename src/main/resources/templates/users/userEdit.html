@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>user</title>
+
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css"
+          th:href="@{/css/bootstrap.min.css}"/>
+
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <h1>User</h1>
+
+    <form class="form-group" >
+        <input th:type="hidden" name="id" th:field="${user.id}"/>
+        <div class="form-group">
+            <label for="username">User name</label>
+            <input type="text" class="form-control" id="username" th:field="${user.username}"/>
+        </div>
+        <div class="form-group">
+            <label for="role">Role</label>
+            <textarea class="form-control" id="role" th:field="${user.role}"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="#" th:href="@{/}" class="btn btn-danger" role="button">Cancel</a>
+    </form>
+
+</div>
+
+</body>
+</html>
